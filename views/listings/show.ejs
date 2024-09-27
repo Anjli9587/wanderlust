@@ -1,27 +1,36 @@
 <% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-3">
 
+    
 
-    <h3>Listing details:</h3>
-    <div class="card">
-        <img src="<%=listing.image.url%>" class="card-img-top">
+    <h3>Listing details</h3>
+    </div>
+    <div class="card col-6 offset-3 show-card">
+        <img src="<%=listing.image.url%>" class="card-img-top show-img">
         <div class="card-body">
-          <p class="card-text"><%= listing.title %></p>
+          <p class="card-text">
+          <b> <%= listing.title %> </b>  <br>
+          <%= listing.description %> <br>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" viewBox="0 -960 960 960" fill="#5f6368">
+            <path d="M549-120 280-400v-80h140q53 0 91.5-34.5T558-600H240v-80h306q-17-35-50.5-57.5T420-760H240v-80h480v80H590q14 17 25 37t17 43h88v80h-81q-8 85-70 142.5T420-400h-29l269 280H549Z"/>
+        </svg>
+        <%= listing.price.toLocaleString("en-IN") %> <br>
+        <%= listing.location %> <br>
+        <%= listing.country %>
+        </p>
         </div>
     </div>
-    <ul>
-        <li><%= listing.title %></li>
-        <li><%= listing.description %></li>
-        <li>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16px" width="16px" viewBox="0 -960 960 960" fill="#5f6368">
-                <path d="M549-120 280-400v-80h140q53 0 91.5-34.5T558-600H240v-80h306q-17-35-50.5-57.5T420-760H240v-80h480v80H590q14 17 25 37t17 43h88v80h-81q-8 85-70 142.5T420-400h-29l269 280H549Z"/>
-            </svg>
-            <%= listing.price.toLocaleString("en-IN") %>
-        </li>
-        <li><%= listing.location %></li>
-        <li><%= listing.country %></li>
-    </ul>
-    <a href="/listings/<%= listing._id %>/edit">Edit this listing</a>
-    <br><br>
-    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-        <button>Delete this listing</button>
-    </form>
+    <div class="btns">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit </a>
+        
+
+        <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+            <button class="btn btn-dark   offset-5">Delete </button>
+        </form>
+    </div>
+
+    
+   
+
+</div>
